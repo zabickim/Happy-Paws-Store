@@ -13,5 +13,10 @@
   },
   "devDependencies": {
     "typescript": "^5.4.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "7.3.1"
+    }
   }
 }

@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #d97706;
+  --color-brand-dark: #b45309;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Base ─────────────────────────────────────────── */
+body {
+  @apply bg-stone-50 text-stone-900 font-sans antialiased;
+}
+
+a {
+  @apply text-amber-600 hover:text-amber-700 transition-colors;
+}
+
+/* ── Layout shell ─────────────────────────────────── */
+.site-header {
+  @apply sticky top-0 z-50 bg-white border-b border-stone-200 shadow-sm;
+}
+
+.site-nav {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between;
+}
+
+.site-nav__brand {
+  @apply text-xl font-bold text-stone-900 hover:text-amber-600 no-underline;
+}
+
+.site-nav__links {
+  @apply flex items-center gap-6;
+}
+
+.site-main {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 py-10;
+}
+
+.site-footer {
+  @apply border-t border-stone-200 mt-16 py-8 text-center text-sm text-stone-500;
+}
+
+/* ── Buttons ──────────────────────────────────────── */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-amber-600 text-white px-5 py-2.5 hover:bg-amber-700 active:scale-95;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed bg-stone-100 text-stone-800 px-5 py-2.5 hover:bg-stone-200 active:scale-95;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-stone-600 px-3 py-2 hover:bg-stone-100;
+}
+
+/* ── Cards ────────────────────────────────────────── */
+.card {
+  @apply bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden;
+}
+
+/* ── Badges ───────────────────────────────────────── */
+.badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+}
+
+.badge-green {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-green-100 text-green-800;
+}
+
+.badge-red {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-red-100 text-red-800;
+}
