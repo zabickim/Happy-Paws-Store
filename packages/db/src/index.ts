@@ -1,8 +1,3 @@
 export { prisma } from "./client.js";
-export { Prisma, PrismaClient } from "./generated/prisma";
-export type {
-  Product,
-  Order,
-  OrderItem,
-  OrderStatus,
-} from "./generated/prisma";
+export { Prisma, PrismaClient } from "@prisma/client";
+export type { Product, Order, OrderItem } from "@prisma/client";

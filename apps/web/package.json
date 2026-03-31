@@ -25,6 +25,7 @@
 		"vite": "7.3.1"
 	},
 	"dependencies": {
-		"@happy-paws/db": "workspace:*"
+		"@happy-paws/db": "workspace:*",
+		"@prisma/client": "^6.19.2"
 	}
 }
