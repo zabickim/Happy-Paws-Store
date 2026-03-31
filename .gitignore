@@ -22,5 +22,6 @@ Thumbs.db
 npm-debug.log*
 pnpm-debug.log*
 
-# Prisma
-packages/db/generated/
+# Prisma generated client (regenerated via `prisma generate`)
+packages/db/node_modules/.prisma/
+packages/db/src/generated/
