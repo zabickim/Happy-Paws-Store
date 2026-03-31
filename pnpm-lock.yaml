@@ -67,6 +67,9 @@ importers:
       prisma:
         specifier: ^6.0.0
         version: 6.19.2(typescript@5.9.3)
+      tsx:
+        specifier: ^4.19.2
+        version: 4.21.0
       typescript:
         specifier: ^5.4.5
         version: 5.9.3
@@ -1404,7 +1407,6 @@ snapshots:
   get-tsconfig@4.13.7:
     dependencies:
       resolve-pkg-maps: 1.0.0
-    optional: true
 
   giget@2.0.0:
     dependencies:
@@ -1536,8 +1538,7 @@ snapshots:
 
   readdirp@4.1.2: {}
 
-  resolve-pkg-maps@1.0.0:
-    optional: true
+  resolve-pkg-maps@1.0.0: {}
 
   rollup@4.60.1:
     dependencies:
@@ -1634,7 +1635,6 @@ snapshots:
       get-tsconfig: 4.13.7
     optionalDependencies:
       fsevents: 2.3.3
-    optional: true
 
   typescript@5.9.3: {}
 
