@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageData } from './$types.js';
+	import { addToCart } from '$lib/stores/cart.svelte.js';
 
 	interface Props {
 		data: PageData;
@@ -8,6 +9,14 @@
 	let { data }: Props = $props();
 
 	const { product } = data;
+
+	let added = $state(false);
+
+	function handleAddToCart() {
+		addToCart(product);
+		added = true;
+		setTimeout(() => (added = false), 1500);
+	}
 
 	function formatPrice(cents: number): string {
 		return (cents / 100).toLocaleString('en-US', {
@@ -55,10 +64,11 @@
 
 		<div class="pt-2">
 			<button
+				onclick={handleAddToCart}
 				class="btn-primary w-full py-3 text-base"
 				disabled={product.stock === 0}
 			>
-				Add to Cart
+				{added ? '✓ Added to Cart' : 'Add to Cart'}
 			</button>
 		</div>
 	</div>
