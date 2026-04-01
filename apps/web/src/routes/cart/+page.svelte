@@ -1,6 +1,40 @@
 <script lang="ts">
 	import { cartItems, cartTotal, removeFromCart, updateQuantity } from '$lib/stores/cart.svelte.js';
 
+	let loading = $state(false);
+	let checkoutError = $state('');
+
+	async function handleCheckout() {
+		loading = true;
+		checkoutError = '';
+
+		try {
+			const res = await fetch('/api/checkout', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					items: cartItems.value.map((i) => ({
+						productId: i.product.id,
+						quantity: i.quantity
+					}))
+				})
+			});
+
+			if (!res.ok) {
+				const data = await res.json();
+				checkoutError = data?.message ?? 'Checkout failed. Please try again.';
+				return;
+			}
+
+			const { url } = await res.json();
+			window.location.href = url;
+		} catch {
+			checkoutError = 'Network error. Please try again.';
+		} finally {
+			loading = false;
+		}
+	}
+
 	function formatPrice(cents: number): string {
 		return (cents / 100).toLocaleString('en-US', {
 			style: 'currency',
@@ -95,9 +129,17 @@
 				<span>{formatPrice(cartTotal())}</span>
 			</div>
 
-			<a href="/checkout" class="btn-primary w-full py-3 text-center text-base">
-				Proceed to Checkout
-			</a>
+			{#if checkoutError}
+				<p class="text-sm text-red-600">{checkoutError}</p>
+			{/if}
+
+			<button
+				onclick={handleCheckout}
+				disabled={loading}
+				class="btn-primary w-full py-3 text-base"
+			>
+				{loading ? 'Redirecting…' : 'Proceed to Checkout'}
+			</button>
 		</div>
 
 	</div>

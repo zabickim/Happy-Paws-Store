@@ -26,6 +26,7 @@
 	},
 	"dependencies": {
 		"@happy-paws/db": "workspace:*",
-		"@prisma/client": "^6.19.2"
+		"@prisma/client": "^6.19.2",
+		"stripe": "^21.0.1"
 	}
 }
